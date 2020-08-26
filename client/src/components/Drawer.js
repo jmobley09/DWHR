@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   appBar: {
+    background: "black",
+    color: "lime",
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -51,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
   },
   drawerOpen: {
+    background: "black",
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -58,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   drawerClose: {
+    background: "black",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -79,6 +83,10 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  Icons: {
+    background: "black",
+    color: "lime",
   },
 }));
 
@@ -117,7 +125,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer
+            Dark Wolf HR
           </Typography>
         </Toolbar>
       </AppBar>
@@ -135,7 +143,7 @@ export default function MiniDrawer() {
         }}
       >
         <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} className={classes.Icons}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
@@ -146,19 +154,8 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
+            <ListItem button key={text} className={classes.Icons}>
+              <ListItemIcon className={classes.Icons}>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
