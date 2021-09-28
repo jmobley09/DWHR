@@ -1,0 +1,28 @@
+# Orchestrates all containers needed to run lykos
+
+version: '3'
+
+services:
+  client:
+    build: ../client
+    container_name: client
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+
+  server:
+    build: ../server
+    container_name: server
+    ports:
+      - 5000:5000
+    env_file:
+      - .env
+  
+  mongo:
+    build: ../mongo
+    container_name: mongo
+    ports:
+      - 27017:27017
+    env_file:
+      - .env

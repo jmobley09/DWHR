@@ -1,0 +1,12 @@
+# Orchestrates client (React) container
+
+version: '3'
+
+services:
+  client:
+    build: ../client
+    container_name: client
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
